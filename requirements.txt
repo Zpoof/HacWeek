@@ -1,0 +1,5 @@
+streamlit
+spoonacular
+PIL
+IPython
+requests
