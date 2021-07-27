@@ -37,7 +37,6 @@ cuisine_options_str = toStr(cuisine_options)
 meal_type_str = toStr(meal_type)
 #meal_type_str
 if st.button('Find Food!'):
-  '''
   if search_q == 'Type Here(Optional)' or search_q == '':
     search_q = '';
   if max_cals == 0 and max_time == 0:
@@ -48,7 +47,7 @@ if st.button('Find Food!'):
     response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, maxCalories = max_cals, instructionsRequired = True, number = 1, fillIngredients = True)
   else:
     response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, maxReadyTime = max_time, maxCalories = max_cals, instructionsRequired = True, number = 1, fillIngredients = True)
-  '''
+  
   data = """
 {
   "results": [
@@ -250,8 +249,8 @@ if st.button('Find Food!'):
 }
 """
 
-  #data = response.json()
-  var = json.loads(data)
+  data = response.json()
+  var = data
   x = var.get("results")[0]
   st.title(x.get('title'))
   st.image(x.get("image"))
@@ -265,8 +264,8 @@ if st.button('Find Food!'):
 
   st.text(" ")
   st.header("Instructions: ")
-  #res = api.get_analyzed_recipe_instructions(id=x.get('id'), stepBreakdown=False)
-  res = '''[
+  res = api.get_analyzed_recipe_instructions(id=x.get('id'), stepBreakdown=False)
+  rese = '''[
   {
     "name": "",
     "steps": [
@@ -659,7 +658,7 @@ if st.button('Find Food!'):
     ]
   }
 ]'''
-  rec = json.loads(res)
+  rec = res.json()
   u = rec[0].get('steps')
   if len(u) > 1:
     for n in u:
