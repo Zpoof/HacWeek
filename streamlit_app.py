@@ -26,10 +26,10 @@ max_cals = st.slider("Select maximum calories", 0, 5000,200, 50, help = "0 for n
 max_time = st.slider("Select maximum time required (mins)", 0, 600,30, 5, help = "0 for no limit")
 
 cuisine_options = st.multiselect("Choose your cuisine", ['African','American','British','Cajun','Caribbean','Chinese','Eastern european','European','French','German','Greek','Indian','Irish','Italian','Japanese','Jewish','Korean','Latin American','Mediterranean','Mexican','Middle Eastern','Nordic','Southern','Spanish','Thai','Vietnamese'])
-cuisine_options = cuisine_options.lower()
+cuisine_options = [x.lower() for x in cuisine_options]
 
 meal_type = st.multiselect("Choose meal type", ['Main Course','Side Dish','Dessert','Appetizer','Salad','Bread','Breakfast','Soup','Beverage','Sauce','Marinade','Fingerfood','Snack','Drink'])
-meal_type = meal_type.lower()
+meal_type = [x.lower() for x in meal_type]
 
 diets = st.selectbox('Select a diet: ', ('Any', 'Vegan', 'Vegetarian'))
 if diets == 'Any':
