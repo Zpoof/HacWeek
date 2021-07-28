@@ -100,12 +100,3 @@ if st.button('Find Food!'):
       
       q = textwrap.fill(q, 90)
       st.text(q)
-
-
-
-
-
-
-
-
-
