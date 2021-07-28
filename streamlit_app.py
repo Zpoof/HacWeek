@@ -21,6 +21,7 @@ api = sp.API("bd80779ab3ae4516846129806a4a211e")
 
 st.image("Logo.png")
 st.header("Get Personalized Food Recommendations With Recipes!")
+st.text(" ")
 
 max_cals = st.slider("Select maximum calories", 0, 5000,200, 50, help = "0 for no limit")
 max_time = st.slider("Select maximum time required (mins)", 0, 600,30, 5, help = "0 for no limit")
