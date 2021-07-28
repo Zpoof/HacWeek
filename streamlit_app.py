@@ -57,7 +57,7 @@ if st.button('Find Food!'):
 
   data = response.json()
   var = data
-  if len(var.get("results")):
+  if len(var.get("results")) == 0:
     st.warning("Sorry! No results found.")
     st.stop()
   
