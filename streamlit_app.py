@@ -673,7 +673,7 @@ if st.button('Find Food!'):
       st.text(p)
   else:
     p = u[0].get('step')
-    P = p.split('.')
+    p = p.split('.')
     for n in p:
       q = '-' + n
       q = textwrap.fill(q, 90)
