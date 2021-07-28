@@ -85,6 +85,7 @@ if st.button('Find Food!'):
   st.header("Instructions: ")
   res = api.get_analyzed_recipe_instructions(id=x.get('id'), stepBreakdown=False)
   rec = res.json()
+  rec
   u = rec[0].get('steps')
   if len(u) > 1:
     for n in u:
