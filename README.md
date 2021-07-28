@@ -1,4 +1,7 @@
 # FeedEx
+
+![](https://github.com/Zpoof/HacWeek/blob/main/Logo.png)
+
 FeedEx is an app which finds you new dishes based on various factors . 
 You also get recipe with instructions, so you can start cooking right away!
 
