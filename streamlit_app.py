@@ -672,7 +672,7 @@ if st.button('Find Food!'):
       p = textwrap.fill(p, 90)
       st.text(p)
   else:
-    st.text(textwrap.fill((u[0].get('step')).replace(".", "\n. ")))
+    st.text((u[0].get('step')).replace(".", ".\n- "))
 
 
 
