@@ -47,6 +47,7 @@ cuisine_options_str = toStr(cuisine_options)
 
 meal_type_str = toStr(meal_type)
 #meal_type_str
+st.text(" ")
 if st.button('Find Food!'):
   if search_q == 'Type Here(Optional)' or search_q == '':
     search_q = '';
