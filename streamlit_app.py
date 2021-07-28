@@ -99,7 +99,7 @@ if st.button('Find Food!'):
     p = u[0].get('step')
     p = p.split('.')
     for n in p:
-      if len(n[0]) > 0:
+      if len(n) > 0:
         if n[0] == " ":
           q = '-' + n;
         else:
