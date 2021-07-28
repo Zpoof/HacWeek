@@ -70,7 +70,7 @@ if st.button('Find Food!'):
   
   
   st.title(x.get('title'))
-  st.image(x.get("image"), width = 120)
+  st.image(x.get("image"), width = 600)
   st.header("Ingredients: ")
 
   y = x.get("missedIngredients")
