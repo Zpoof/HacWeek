@@ -27,6 +27,12 @@ max_time = st.slider("Select maximum time required (mins)", 0, 600,30, 5, help =
 
 cuisine_options = st.multiselect("Choose your cuisine", ['african','american','british','cajun','caribbean','chinese','eastern european','european','french','german','greek','indian','irish','italian','japanese','jewish','korean','latin american','mediterranean','mexican','middle eastern','nordic','southern','spanish','thai','vietnamese'])
 meal_type = st.multiselect("Choose meal type", ['main course','side dish','dessert','appetizer','salad','bread','breakfast','soup','beverage','sauce','marinade','fingerfood','snack','drink'])
+diets = st.selectbox('Select a diet: ', ('Any', 'Vegan', 'Vegetarian'))
+if diets == 'Any':
+  diets = ''
+else:
+  diets = diets.lower()
+
 
 search_q = st.text_input("Enter dish name", value ="Type Here(Optional)", help = "Leave empty for random results")
 #st.text(max_time)
@@ -40,13 +46,13 @@ if st.button('Find Food!'):
   if search_q == 'Type Here(Optional)' or search_q == '':
     search_q = '';
   if max_cals == 0 and max_time == 0:
-    response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, instructionsRequired = True, number = 1, fillIngredients = True)
+    response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, instructionsRequired = True, number = 1, fillIngredients = True, diet = diets)
   elif max_cals == 0:
-    response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, maxReadyTime = max_time, instructionsRequired = True, number = 1, fillIngredients = True)
+    response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, maxReadyTime = max_time, instructionsRequired = True, number = 1, fillIngredients = True, diet = diets)
   elif max_time == 0:
-    response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, maxCalories = max_cals, instructionsRequired = True, number = 1, fillIngredients = True)
+    response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, maxCalories = max_cals, instructionsRequired = True, number = 1, fillIngredients = True, diet = diets)
   else:
-    response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, maxReadyTime = max_time, maxCalories = max_cals, instructionsRequired = True, number = 1, fillIngredients = True)
+    response = api.search_recipes_complex(query = search_q, cuisine = cuisine_options_str, type = meal_type_str, maxReadyTime = max_time, maxCalories = max_cals, instructionsRequired = True, number = 1, fillIngredients = True, diet = diets)
   
   data = """
 {
