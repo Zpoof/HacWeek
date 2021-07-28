@@ -676,7 +676,7 @@ if st.button('Find Food!'):
     P = p.split('.')
     for n in p:
       q = '-' + n
-      q = .textwrap.fill(q, 90)
+      q = textwrap.fill(q, 90)
       st.text(q)
 
 
